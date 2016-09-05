@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.jhb</groupId>
+    <artifactId>jhb-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.jhb</groupId>
+  <artifactId>jhb-weixin</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>jhb-weixin Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  	<!-- 设置profiles -->
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<profiles.activation>dev</profiles.activation>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profiles.activation>prod</profiles.activation>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.jhb</groupId>
+			<artifactId>jhb-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jhb</groupId>
+			<artifactId>jhb-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jhb</groupId>
+			<artifactId>jhb-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>ROOT</warName>
+					<encoding>UTF-8</encoding>
+					<!-- 激活spring profile -->
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	
+	    <finalName>jhb-weixin</finalName>
+	  </build>
+</project>

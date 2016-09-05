@@ -16,7 +16,7 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/justtest" userId="root" password="54881422">
+			connectionURL="jdbc:mysql://101.200.127.223:3306/jianghubang" userId="root" password="54881422">
 		</jdbcConnection>
 
 		<javaTypeResolver>
@@ -39,7 +39,7 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="qqinfo" domainObjectName="QQInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="test" domainObjectName="Test" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
 		
 	</context>
 </generatorConfiguration>
