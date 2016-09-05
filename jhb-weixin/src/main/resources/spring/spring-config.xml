@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+	<!-- 导入其他配置文件，以下两个文件，位于dao项目和common项目中 -->
+	<import resource="spring-config-mybatis.xml" />
+	<import resource="spring-config-bean.xml" />
+
+	<!-- 根据不同的profle，加载不同的配置文件 -->
+	<beans profile="dev">
+		<context:property-placeholder location="classpath:resources.dev.properties" />
+	</beans>
+	<beans profile="prod">
+		<context:property-placeholder location="classpath:resources.prod.properties" />
+	</beans>
+</beans>
